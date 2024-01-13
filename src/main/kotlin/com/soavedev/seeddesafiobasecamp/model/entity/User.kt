@@ -1,4 +1,4 @@
-package com.soavedev.seeddesafiobasecamp.model
+package com.soavedev.seeddesafiobasecamp.model.entity
 
 import com.soavedev.seeddesafiobasecamp.model.enums.UserRoles
 import com.soavedev.seeddesafiobasecamp.model.enums.UserStatus
