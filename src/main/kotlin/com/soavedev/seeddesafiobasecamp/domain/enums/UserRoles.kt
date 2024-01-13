@@ -1,4 +1,4 @@
-package com.soavedev.seeddesafiobasecamp.model.enums
+package com.soavedev.seeddesafiobasecamp.domain.enums
 
 enum class UserRoles {
     ADMIN,

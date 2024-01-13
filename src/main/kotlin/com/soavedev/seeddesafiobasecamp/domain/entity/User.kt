@@ -1,7 +1,5 @@
-package com.soavedev.seeddesafiobasecamp.model.entity
+package com.soavedev.seeddesafiobasecamp.domain.entity
 
-import com.soavedev.seeddesafiobasecamp.model.enums.UserRoles
-import com.soavedev.seeddesafiobasecamp.model.enums.UserStatus
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
