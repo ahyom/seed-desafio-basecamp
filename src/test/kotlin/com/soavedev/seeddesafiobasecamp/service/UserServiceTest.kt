@@ -6,6 +6,7 @@ import com.soavedev.seeddesafiobasecamp.domain.enums.UserStatus
 import com.soavedev.seeddesafiobasecamp.domain.exceptions.EntityAlreadyExistsException
 import com.soavedev.seeddesafiobasecamp.domain.exceptions.NotFoundException
 import com.soavedev.seeddesafiobasecamp.domain.repository.UserRepository
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertDoesNotThrow
@@ -24,9 +25,9 @@ class UserServiceTest {
     @InjectMocks
     lateinit var userService: UserService
 
-    lateinit var userDefault: User
+    private lateinit var userDefault: User
 
-    var randomUUID = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1"
+    private var randomUUID = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1"
 
     @BeforeEach
     fun setup() {
@@ -60,21 +61,29 @@ class UserServiceTest {
 
     @Test
     fun `when try to update a non-existing user, should throw NotFoundException`() {
-//        `when`(userService.getUserById(randomUUID)).thenThrow(NotFoundException(""))
-//        assertThrows<NotFoundException> {
-//            userService.updateUser(userDefault)
-//        }
-        TODO()
+        `when`(userRepository.findById(UUID.fromString(randomUUID))).thenReturn(Optional.empty())
+        assertThrows<NotFoundException> {
+            userService.updateUser(userDefault)
+        }
     }
 
     @Test
     fun `should return all users`() {
-        TODO()
+        val listUsers = listOf(userDefault)
+        `when`(userService.getAllUsers()).thenReturn(listUsers)
+
+        val userResult = userService.getAllUsers()
+
+        assert(userResult.isNotEmpty())
     }
 
     @Test
     fun `should return a user by id with sucess`() {
-        TODO()
+        `when`(userRepository.findById(UUID.fromString(randomUUID))).thenReturn(Optional.of(userDefault))
+
+        val userResult = userService.getUserById(randomUUID)
+
+        assertEquals(userResult, userDefault)
     }
 
     @Test
