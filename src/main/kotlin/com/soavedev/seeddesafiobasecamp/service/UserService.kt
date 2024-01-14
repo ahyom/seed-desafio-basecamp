@@ -18,11 +18,13 @@ class UserService @Autowired constructor(
 
     fun saveUser(user: User): User {
         logger.debug { "Saving User with id [${user.id}]..." }
+        validateIfEmailAlreadyExists(user.emailAddress)
         return userRepository.save(user)
     }
 
     fun updateUser(user: User): User {
         logger.debug { "Updating User with id [${user.id}]..." }
+        getUserById(user.id.toString())
         return userRepository.save(user)
     }
 
@@ -38,7 +40,7 @@ class UserService @Autowired constructor(
                 .orElseThrow{ NotFoundException("User $userId was not found") }
     }
 
-    private fun validateIfEmailAlreadyExists(emailAddress: String) {
+    fun validateIfEmailAlreadyExists(emailAddress: String) {
         logger.debug { "Searching email address [$emailAddress]..." }
 
         val user = userRepository.findUserByEmailAddress(emailAddress)
