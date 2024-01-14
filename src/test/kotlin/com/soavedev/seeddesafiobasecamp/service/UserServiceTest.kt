@@ -88,7 +88,10 @@ class UserServiceTest {
 
     @Test
     fun `when ID does not exists, shoud throw NotFoundException`() {
-        TODO()
+        `when`(userRepository.findById(UUID.fromString(randomUUID))).thenReturn(Optional.empty())
+        assertThrows<NotFoundException> {
+            userService.getUserById(randomUUID)
+        }
     }
 
     private fun buildDefaultUserEntity(): User {
