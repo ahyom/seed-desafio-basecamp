@@ -47,6 +47,4 @@ class UserService @Autowired constructor(
             throw EntityAlreadyExistsException("User with  email [$emailAddress] already exists")
         }
     }
-
-
 }
