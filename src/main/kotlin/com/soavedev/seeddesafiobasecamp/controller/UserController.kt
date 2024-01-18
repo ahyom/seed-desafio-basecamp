@@ -20,7 +20,7 @@ class UserController @Autowired constructor(
 ) {
 
     @PostMapping
-    fun saveUser(@Valid @RequestBody userDTO: UserDTO): ResponseEntity<UserDTO> {
+    fun saveUser(@RequestBody userDTO: UserDTO): ResponseEntity<UserDTO> {
         val userCreated = userService.saveUser(userMapper.toEntity(userDTO))
         return ResponseEntity.status(HttpStatus.CREATED).body(userMapper.toDTO(userCreated))
     }
