@@ -20,10 +20,8 @@ data class UserDTO(
         @field:NotEmpty(message = "email must be informed")
         var emailAddress: String,
 
-        @field:NotEmpty(message = "role must be informed")
         var role: UserRoles,
 
-        @field:NotEmpty(message = "status must be informed")
         var status: UserStatus,
 
         var location: String,
