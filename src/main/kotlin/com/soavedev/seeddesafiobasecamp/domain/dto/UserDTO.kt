@@ -2,6 +2,7 @@ package com.soavedev.seeddesafiobasecamp.domain.dto
 
 import com.soavedev.seeddesafiobasecamp.domain.enums.UserRoles
 import com.soavedev.seeddesafiobasecamp.domain.enums.UserStatus
+import jakarta.validation.Validation
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.Size
@@ -19,8 +20,10 @@ data class UserDTO(
         @field:NotEmpty(message = "email must be informed")
         var emailAddress: String,
 
+        @field:NotEmpty(message = "role must be informed")
         var role: UserRoles,
 
+        @field:NotEmpty(message = "status must be informed")
         var status: UserStatus,
 
         var location: String,
@@ -28,4 +31,9 @@ data class UserDTO(
         var shortBio: String,
 
         var profilePictureUrl: String
-)
+){
+        fun validate(): List<String> {
+                val validator = Validation.buildDefaultValidatorFactory().validator
+                return validator.validate(this).map { it.message }
+        }
+}

@@ -14,6 +14,13 @@ private val logger = KotlinLogging.logger {}
 class UserMapper: Mapper<UserDTO, User> {
     override fun toEntity(domain: UserDTO): User {
 
+        domain.validate().let {
+            if (it.isNotEmpty()) {
+                logger.error { "Failed to convert to entity" }
+                throw IllegalArgumentException(it.toString())
+            }
+        }
+
         if(domain.id == null){
             logger.debug { "Generating ID for new User..." }
             domain.id = UUID.randomUUID()
