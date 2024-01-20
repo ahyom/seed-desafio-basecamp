@@ -89,7 +89,6 @@ class TaskServiceTest {
         }
     }
 
-
     private fun buildDefaultTask(): Task {
         return Task(
                 id = UUID.fromString(someUUID),
