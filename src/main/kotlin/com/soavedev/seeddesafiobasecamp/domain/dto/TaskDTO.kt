@@ -1,5 +1,6 @@
 package com.soavedev.seeddesafiobasecamp.domain.dto
 
+import com.fasterxml.jackson.annotation.JsonFormat
 import com.soavedev.seeddesafiobasecamp.domain.enums.TaskStatus
 import jakarta.validation.Validation
 import jakarta.validation.constraints.NotEmpty
@@ -14,8 +15,10 @@ data class TaskDTO(
         @field:Size(max = 100, message = "name must have max of 100 characters")
         var name: String,
 
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
         var startDate: LocalDateTime?,
 
+        @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
         var finishDate: LocalDateTime?,
 
         var status: TaskStatus,
