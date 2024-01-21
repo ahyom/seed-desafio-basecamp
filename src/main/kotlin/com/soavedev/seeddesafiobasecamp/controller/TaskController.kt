@@ -30,7 +30,7 @@ class TaskController @Autowired constructor(
     @PutMapping
     fun updateTask(@RequestBody taskDTO: TaskDTO): ResponseEntity<TaskDTO> {
         val taskUpdated = taskService.updateTask(taskMapper.toEntity(taskDTO))
-        return ResponseEntity.status(HttpStatus.CREATED).body(taskMapper.toDTO(taskUpdated))
+        return ResponseEntity.status(HttpStatus.OK).body(taskMapper.toDTO(taskUpdated))
     }
 
     @GetMapping
