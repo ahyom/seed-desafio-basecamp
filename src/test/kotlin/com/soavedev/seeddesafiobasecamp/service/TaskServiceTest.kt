@@ -97,8 +97,6 @@ class TaskServiceTest {
                 finishDate = LocalDateTime.now().plusDays(7),
                 status =TaskStatus.BACKLOG.name,
                 notes = "This is a sample task",
-                bucketId = "123456",
-                groupId = "789012",
                 userAssignId = "user123",
                 userNotifyId = "user456"
         )

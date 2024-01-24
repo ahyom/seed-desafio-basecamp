@@ -25,10 +25,6 @@ data class TaskDTO(
 
         var notes: String?,
 
-        var bucketId: UUID,
-
-        var groupId: UUID?,
-
         var userAssignId: UUID?,
 
         var userNotifyId: UUID?,

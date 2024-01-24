@@ -155,8 +155,6 @@ class TaskControllerTest @Autowired constructor(
                 finishDate = LocalDateTime.now().plusDays(7),
                 status =TaskStatus.BACKLOG.name,
                 notes = "This is a sample task",
-                bucketId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
-                groupId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
                 userAssignId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
                 userNotifyId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1"
         )
@@ -170,8 +168,6 @@ class TaskControllerTest @Autowired constructor(
                 finishDate = LocalDateTime.now(),
                 status = TaskStatus.BACKLOG,
                 notes = "Some notes on my task",
-                bucketId = UUID.randomUUID(),
-                groupId = UUID.randomUUID(),
                 userAssignId = UUID.randomUUID(),
                 userNotifyId = UUID.randomUUID()
         )

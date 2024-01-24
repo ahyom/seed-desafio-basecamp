@@ -61,8 +61,6 @@ class TaskDTOTest {
                 finishDate = LocalDateTime.now(),
                 status = TaskStatus.BACKLOG,
                 notes = "Some notes on my task",
-                bucketId = UUID.randomUUID(),
-                groupId = UUID.randomUUID(),
                 userAssignId = UUID.randomUUID(),
                 userNotifyId = UUID.randomUUID()
         )

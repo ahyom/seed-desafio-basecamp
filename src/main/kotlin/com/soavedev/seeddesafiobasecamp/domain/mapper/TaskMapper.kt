@@ -31,8 +31,6 @@ class TaskMapper : Mapper<TaskDTO, Task> {
                 finishDate = domain.finishDate!!,
                 status = domain.status.name,
                 notes = domain.notes!!,
-                bucketId = domain.bucketId.toString(),
-                groupId = domain.groupId!!.toString(),
                 userAssignId = domain.userAssignId!!.toString(),
                 userNotifyId = domain.userNotifyId!!.toString(),
         )
@@ -46,8 +44,6 @@ class TaskMapper : Mapper<TaskDTO, Task> {
                 finishDate = entity.finishDate,
                 status = TaskStatus.valueOf(entity.status),
                 notes = entity.notes,
-                bucketId = UUID.fromString(entity.bucketId),
-                groupId = UUID.fromString(entity.groupId),
                 userAssignId = UUID.fromString(entity.userAssignId),
                 userNotifyId = UUID.fromString(entity.userNotifyId)
         )

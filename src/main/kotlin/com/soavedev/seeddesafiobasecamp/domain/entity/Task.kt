@@ -30,12 +30,6 @@ data class Task(
         var notes: String,
 
         @Column(nullable = true, unique = false)
-        var bucketId: String,
-
-        @Column(nullable = true, unique = false)
-        var groupId: String,
-
-        @Column(nullable = true, unique = false)
         var userAssignId: String,
 
         @Column(nullable = true, unique = false)
