@@ -98,7 +98,9 @@ class TaskServiceTest {
                 status =TaskStatus.BACKLOG.name,
                 notes = "This is a sample task",
                 userAssignId = "user123",
-                userNotifyId = "user456"
+                userNotifyId = "user456",
+                bucketId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
+                bucket = null
         )
     }
 }

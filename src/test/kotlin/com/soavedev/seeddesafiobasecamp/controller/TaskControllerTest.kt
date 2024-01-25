@@ -156,7 +156,9 @@ class TaskControllerTest @Autowired constructor(
                 status =TaskStatus.BACKLOG.name,
                 notes = "This is a sample task",
                 userAssignId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
-                userNotifyId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1"
+                userNotifyId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
+                bucketId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1",
+                bucket = null
         )
     }
 
@@ -169,7 +171,8 @@ class TaskControllerTest @Autowired constructor(
                 status = TaskStatus.BACKLOG,
                 notes = "Some notes on my task",
                 userAssignId = UUID.randomUUID(),
-                userNotifyId = UUID.randomUUID()
+                userNotifyId = UUID.randomUUID(),
+                bucketId = "6cb8d49c-6b07-4b69-8e5f-4c5b50115ee1"
         )
     }
 }
