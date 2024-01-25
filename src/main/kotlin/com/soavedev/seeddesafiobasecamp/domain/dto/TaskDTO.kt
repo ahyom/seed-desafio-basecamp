@@ -1,6 +1,7 @@
 package com.soavedev.seeddesafiobasecamp.domain.dto
 
 import com.fasterxml.jackson.annotation.JsonFormat
+import com.fasterxml.jackson.annotation.JsonProperty
 import com.soavedev.seeddesafiobasecamp.domain.enums.TaskStatus
 import jakarta.validation.Validation
 import jakarta.validation.constraints.NotEmpty
@@ -28,6 +29,9 @@ data class TaskDTO(
         var userAssignId: UUID?,
 
         var userNotifyId: UUID?,
+
+        var bucketId: String
+
     ){
 
     fun validate(): List<String> {

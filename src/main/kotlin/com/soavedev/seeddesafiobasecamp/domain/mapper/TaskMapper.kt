@@ -33,6 +33,8 @@ class TaskMapper : Mapper<TaskDTO, Task> {
                 notes = domain.notes!!,
                 userAssignId = domain.userAssignId!!.toString(),
                 userNotifyId = domain.userNotifyId!!.toString(),
+                bucketId = domain.bucketId,
+                bucket = null
         )
     }
 
@@ -45,7 +47,8 @@ class TaskMapper : Mapper<TaskDTO, Task> {
                 status = TaskStatus.valueOf(entity.status),
                 notes = entity.notes,
                 userAssignId = UUID.fromString(entity.userAssignId),
-                userNotifyId = UUID.fromString(entity.userNotifyId)
+                userNotifyId = UUID.fromString(entity.userNotifyId),
+                bucketId = entity.bucketId
         )
     }
 }
