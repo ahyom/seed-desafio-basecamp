@@ -107,6 +107,8 @@ class UserControllerTest @Autowired constructor(
         return UserDTO(
                 id = UUID.fromString(randomUUID),
                 name = "John Mayer",
+                login = "username",
+                userPassword = "some pass",
                 emailAddress = "johnmayer@fender.com",
                 role = UserRoles.ADMIN,
                 status = UserStatus.ACTIVE,

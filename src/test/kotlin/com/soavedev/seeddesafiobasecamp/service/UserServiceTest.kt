@@ -98,6 +98,8 @@ class UserServiceTest {
         return User(
                 id = UUID.fromString(randomUUID),
                 name = "John Mayer",
+                login = "username",
+                userPassword = "some pass",
                 emailAddress = "johnmayer@guitar.com",
                 role = UserRoles.ADMIN,
                 status = UserStatus.ACTIVE.name,
