@@ -99,7 +99,7 @@ class UserServiceTest {
                 id = UUID.fromString(randomUUID),
                 name = "John Mayer",
                 emailAddress = "johnmayer@guitar.com",
-                role = UserRoles.ADMIN.name,
+                role = UserRoles.ADMIN,
                 status = UserStatus.ACTIVE.name,
                 location = "Los Angeles, CA",
                 shortBio = "Guitarrist and Taylor Swift ex",
