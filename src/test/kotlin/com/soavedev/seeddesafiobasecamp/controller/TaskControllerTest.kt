@@ -32,7 +32,6 @@ private const val BASE_ENDPOINT = "/tasks"
 @SpringBootTest
 @AutoConfigureMockMvc
 class TaskControllerTest @Autowired constructor(
-        @InjectMocks val taskService: TaskService,
         @MockBean val taskRepository: TaskRepository,
         val objectMapper: ObjectMapper,
         val mockMvc: MockMvc
