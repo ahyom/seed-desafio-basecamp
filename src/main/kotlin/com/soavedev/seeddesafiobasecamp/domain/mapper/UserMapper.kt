@@ -45,7 +45,7 @@ class UserMapper: Mapper<UserDTO, User> {
                 id = entity.id,
                 name = entity.name,
                 login = entity.login,
-                userPassword = entity.userPassword,
+                userPassword = "*******************",
                 emailAddress = entity.emailAddress,
                 role = entity.role,
                 status = UserStatus.valueOf(entity.status),

@@ -11,5 +11,5 @@ interface UserRepository : CrudRepository<User, UUID> {
 
     fun findUserByEmailAddress(emailAddress: String): Optional<User>
 
-    fun findByUsername(username: String): UserDetails
+    fun findByLogin(login: String): UserDetails
 }

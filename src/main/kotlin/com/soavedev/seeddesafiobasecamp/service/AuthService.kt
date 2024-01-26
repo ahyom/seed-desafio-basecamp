@@ -11,7 +11,7 @@ class AuthService @Autowired constructor(
         private var userRepository: UserRepository
 ) : UserDetailsService {
 
-    override fun loadUserByUsername(username: String?): UserDetails {
-        return userRepository.findByUsername(username!!)
+    override fun loadUserByUsername(login: String): UserDetails {
+        return userRepository.findByLogin(login)
     }
 }

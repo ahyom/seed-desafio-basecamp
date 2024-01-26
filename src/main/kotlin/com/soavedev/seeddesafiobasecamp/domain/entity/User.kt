@@ -50,7 +50,7 @@ data class User(
         }
 
         override fun getPassword(): String {
-                TODO("Not yet implemented")
+                return userPassword
         }
 
         override fun getUsername(): String {

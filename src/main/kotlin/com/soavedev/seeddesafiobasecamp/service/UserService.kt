@@ -7,6 +7,8 @@ import com.soavedev.seeddesafiobasecamp.domain.exceptions.NotFoundException
 import com.soavedev.seeddesafiobasecamp.domain.repository.UserRepository
 import mu.KotlinLogging
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.security.crypto.bcrypt.BCrypt
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder
 import org.springframework.stereotype.Service
 import java.util.*
 
@@ -20,6 +22,9 @@ class UserService @Autowired constructor(
     fun saveUser(user: User): User {
         logger.debug { "Saving User with id [${user.id}]..." }
         validateIfEmailAlreadyExists(user.emailAddress)
+
+        user.userPassword = BCryptPasswordEncoder().encode(user.userPassword)
+
         return userRepository.save(user)
     }
 
