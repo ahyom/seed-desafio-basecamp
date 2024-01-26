@@ -14,9 +14,10 @@ data class BucketDTO (
         @field:Size(max = 100, message = "name must have max of 100 characters")
         var name: String,
 
-        @field:Size(max = 400, message = "name must have max of 400 characters")
+        @field:Size(max = 400, message = "description must have max of 400 characters")
         var description: String,
 
+        @field:NotEmpty(message = "create user must be informed")
         var createdBy: String,
 
         @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss")
