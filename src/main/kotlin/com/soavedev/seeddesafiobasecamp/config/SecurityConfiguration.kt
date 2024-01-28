@@ -1,5 +1,6 @@
 package com.soavedev.seeddesafiobasecamp.config
 
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.http.HttpMethod
@@ -14,7 +15,9 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
-class SecurityConfiguration {
+class SecurityConfiguration @Autowired constructor(
+        var securityFilter: SecurityFilter
+) {
 
     @Bean
     fun securityChain(httpSecurity: HttpSecurity): SecurityFilterChain {
@@ -25,8 +28,14 @@ class SecurityConfiguration {
                     .requestMatchers(HttpMethod.POST,
                             "/auth/login",
                             "/auth/register").permitAll()
+                    .requestMatchers(
+                            "/buckets",
+                            "/tasks").authenticated()
+                    .requestMatchers("/users").hasRole("ADMIN")
+
+                    .anyRequest().authenticated()
                 }
-//                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter::class.java)
+                .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter::class.java)
                 .build()
     }
 

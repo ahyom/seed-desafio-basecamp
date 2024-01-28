@@ -3,12 +3,14 @@ package com.soavedev.seeddesafiobasecamp.service
 import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import com.auth0.jwt.exceptions.JWTCreationException
+import com.auth0.jwt.exceptions.JWTVerificationException
 import com.soavedev.seeddesafiobasecamp.domain.entity.User
 import mu.KotlinLogging
 import org.springframework.stereotype.Service
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneOffset
+
 
 private val logger = KotlinLogging.logger {}
 
@@ -33,6 +35,19 @@ class TokenService {
         } catch (exception: JWTCreationException) {
             logger.error { "Failed to generate token." }
             throw RuntimeException("Error while generating token", exception)
+        }
+    }
+
+    fun validateToken(token: String?): String {
+        try {
+            val algorithm = Algorithm.HMAC256(secret)
+            return JWT.require(algorithm)
+                    .withIssuer("seed-desafio-basecamp-auth")
+                    .build()
+                    .verify(token)
+                    .subject
+        } catch (exception: JWTVerificationException) {
+            return ""
         }
     }
 

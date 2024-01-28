@@ -23,7 +23,6 @@ class AuthController @Autowired constructor(
         var userService: UserService,
         var tokenService: TokenService,
         var userMapper: UserMapper,
-        //var tokenService: TokenService
 ) {
 
     @PostMapping("/login")
